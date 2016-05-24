@@ -24,11 +24,13 @@ export default Em.Component.extend({
    validateAndAuthenticate() {
      this.validate();
      if (this.get('flag')) {
+
         this.set('isButtonVisible', false);
         this.get('onConfirm')();
       }
     },
     done() {
+      alert("*******************8")
       this.validate();
       if (this.get('flag')) {
         this.get('onDone')();

@@ -3,12 +3,13 @@ import Ember from 'ember';
 export default Ember.Service.extend({
 ajax: Em.inject.service(),
 create(infos) {
+  alret("hai")
     console.log(infos);
-    return this.get('ajax').request('/hostinfos/content', {
+    /*return this.get('ajax').request('/hostinfos/content', {
         method: 'POST',
         data: JSON.stringify(infos)
-      });
-    /*return [
+      });*/
+    return [
           {
             Status:"success",
              Statusmsg: "",
@@ -79,7 +80,7 @@ create(infos) {
                }
              ]
            },
-         ];*/
+         ];
 }
 
 });

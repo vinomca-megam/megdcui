@@ -1,19 +1,18 @@
 package solusvm
 
 import (
-
 	log "github.com/Sirupsen/logrus"
 	"github.com/megamsys/libgo/action"
-	"github.com/megamsys/megdcui/migration/solusvm/api"
 	"github.com/megamsys/megdcui/automation"
-//	"github.com/megamsys/libgo/exec"
-//	"strings"
+	"github.com/megamsys/megdcui/migration/solusvm/api"
+	//	"github.com/megamsys/libgo/exec"
+	//	"strings"
 )
 
 type runActionsArgs struct {
-  h *automation.HostInfo
+	h *automation.HostInfo
 	//orgs *automation.Organizations
-//	acts *automation.Accounts
+	//	acts *automation.Accounts
 }
 
 var VertifyMigratableCredentials = action.Action{
@@ -25,11 +24,11 @@ var VertifyMigratableCredentials = action.Action{
 		var m api.SolusClient
 		err := m.GetNodes(args.h)
 
-    if err != nil {
-			return nil , err
+		if err != nil {
+			return nil, err
 		}
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
@@ -44,9 +43,8 @@ var VerfiyMigrationComplete = action.Action{
 
 		log.Debugf("Solusvm Master  %s ", args.h.SolusMaster)
 
-
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
@@ -61,8 +59,8 @@ var ListClientsInMigratable = action.Action{
 
 		log.Debugf("Solusvm Master  %s ", args.h.SolusMaster)
 
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
@@ -79,17 +77,16 @@ var OnboardClientsInVertice = action.Action{
 		var m api.SolusClient
 		err := m.GetClients(args.h)
 		if err != nil {
-			return nil , err
+			return nil, err
 		}
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
 
 	},
 }
-
 
 var ListVMsinMigratable = action.Action{
 	Name: "ListVMsinMigratable",
@@ -98,9 +95,8 @@ var ListVMsinMigratable = action.Action{
 
 		log.Debugf("Solusvm Master  %s ", args.h.SolusMaster)
 
-
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
@@ -117,11 +113,11 @@ var TagMigratableInVertice = action.Action{
 		var m api.SolusClient
 		err := m.GenVirtualMachines(args.h)
 		if err != nil {
-			return nil , err
+			return nil, err
 		}
 
-    log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
-    return &args ,nil
+		log.Debugf("Verified [%s] solusvm master ", args.h.SolusMaster)
+		return &args, nil
 
 	},
 	Backward: func(ctx action.BWContext) {
